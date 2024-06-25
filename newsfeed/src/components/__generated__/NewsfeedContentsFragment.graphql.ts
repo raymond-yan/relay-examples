@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<19192c301aaed9eb89684d4ecaab8af4>>
+ * @generated SignedSource<<cd6c0a8dd6c2db9ef4c42f3fe252a56d>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -10,12 +10,12 @@
 
 import { ReaderFragment, RefetchableFragment } from 'relay-runtime';
 import { FragmentRefs } from "relay-runtime";
-export type StoryCommentsSectionFragment$data = {
-  readonly comments: {
+export type NewsfeedContentsFragment$data = {
+  readonly newsfeedStories: {
     readonly edges: ReadonlyArray<{
       readonly node: {
         readonly id: string;
-        readonly " $fragmentSpreads": FragmentRefs<"CommentFragment">;
+        readonly " $fragmentSpreads": FragmentRefs<"StoryFragment">;
       } | null;
     } | null> | null;
     readonly pageInfo: {
@@ -23,26 +23,17 @@ export type StoryCommentsSectionFragment$data = {
       readonly startCursor: string | null;
     } | null;
   } | null;
-  readonly id: string;
-  readonly " $fragmentSpreads": FragmentRefs<"StoryCommentsComposerFragment">;
-  readonly " $fragmentType": "StoryCommentsSectionFragment";
+  readonly " $fragmentType": "NewsfeedContentsFragment";
 };
-export type StoryCommentsSectionFragment$key = {
-  readonly " $data"?: StoryCommentsSectionFragment$data;
-  readonly " $fragmentSpreads": FragmentRefs<"StoryCommentsSectionFragment">;
+export type NewsfeedContentsFragment$key = {
+  readonly " $data"?: NewsfeedContentsFragment$data;
+  readonly " $fragmentSpreads": FragmentRefs<"NewsfeedContentsFragment">;
 };
 
 const node: ReaderFragment = (function(){
 var v0 = [
-  "comments"
-],
-v1 = {
-  "alias": null,
-  "args": null,
-  "kind": "ScalarField",
-  "name": "id",
-  "storageKey": null
-};
+  "newsfeedStories"
+];
 return {
   "argumentDefinitions": [
     {
@@ -76,20 +67,19 @@ return {
         "path": (v0/*: any*/)
       },
       "fragmentPathInResult": [
-        "node"
+        "viewer"
       ],
-      "operation": require('./StoryCommentsSectionRefetchQuery.graphql'),
-      "identifierField": "id"
+      "operation": require('./NewsfeedContentsRefetchQuery.graphql')
     }
   },
-  "name": "StoryCommentsSectionFragment",
+  "name": "NewsfeedContentsFragment",
   "selections": [
     {
-      "alias": "comments",
+      "alias": "newsfeedStories",
       "args": null,
-      "concreteType": "CommentsConnection",
+      "concreteType": "StoriesConnection",
       "kind": "LinkedField",
-      "name": "__StoryCommentsSection_comments_connection",
+      "name": "__NewsfeedContents_newsfeedStories_connection",
       "plural": false,
       "selections": [
         {
@@ -127,7 +117,7 @@ return {
         {
           "alias": null,
           "args": null,
-          "concreteType": "CommentsConnectionEdge",
+          "concreteType": "StoriesConnectionEdge",
           "kind": "LinkedField",
           "name": "edges",
           "plural": true,
@@ -135,16 +125,22 @@ return {
             {
               "alias": null,
               "args": null,
-              "concreteType": "Comment",
+              "concreteType": "Story",
               "kind": "LinkedField",
               "name": "node",
               "plural": false,
               "selections": [
-                (v1/*: any*/),
+                {
+                  "alias": null,
+                  "args": null,
+                  "kind": "ScalarField",
+                  "name": "id",
+                  "storageKey": null
+                },
                 {
                   "args": null,
                   "kind": "FragmentSpread",
-                  "name": "CommentFragment"
+                  "name": "StoryFragment"
                 },
                 {
                   "alias": null,
@@ -168,19 +164,13 @@ return {
         }
       ],
       "storageKey": null
-    },
-    {
-      "args": null,
-      "kind": "FragmentSpread",
-      "name": "StoryCommentsComposerFragment"
-    },
-    (v1/*: any*/)
+    }
   ],
-  "type": "Story",
+  "type": "Viewer",
   "abstractKey": null
 };
 })();
 
-(node as any).hash = "0333c8ecf4b43274e4bacbc35e2c4ed5";
+(node as any).hash = "02fd823a0399b8f1844b9de179e33d8d";
 
 export default node;
