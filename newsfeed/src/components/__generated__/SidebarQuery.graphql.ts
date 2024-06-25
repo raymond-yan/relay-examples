@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<f8e9d1ba27a1c5f12baaffd032c0304b>>
+ * @generated SignedSource<<d5cff1c84ed9dd1319e0009e5da82110>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -155,6 +155,44 @@ return {
                   }
                 ],
                 "storageKey": null
+              },
+              {
+                "kind": "InlineFragment",
+                "selections": [
+                  {
+                    "kind": "ClientExtension",
+                    "selections": [
+                      {
+                        "alias": null,
+                        "args": null,
+                        "concreteType": "Note",
+                        "kind": "LinkedField",
+                        "name": "note",
+                        "plural": false,
+                        "selections": [
+                          (v3/*: any*/),
+                          {
+                            "alias": null,
+                            "args": null,
+                            "kind": "ScalarField",
+                            "name": "title",
+                            "storageKey": null
+                          },
+                          {
+                            "alias": null,
+                            "args": null,
+                            "kind": "ScalarField",
+                            "name": "body",
+                            "storageKey": null
+                          }
+                        ],
+                        "storageKey": null
+                      }
+                    ]
+                  }
+                ],
+                "type": "Person",
+                "abstractKey": null
               }
             ],
             "storageKey": null
@@ -165,12 +203,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "cfd00933be468af9c9215168c101c6f9",
+    "cacheID": "8ec153b21b51b110a66450e7669f86cd",
     "id": null,
     "metadata": {},
     "name": "SidebarQuery",
     "operationKind": "query",
-    "text": "query SidebarQuery {\n  viewer {\n    ...ViewerProfileFragment\n    ...ContactsListFragment\n  }\n}\n\nfragment ContactRowFragment on Actor {\n  __isActor: __typename\n  name\n  profilePicture {\n    ...ImageFragment\n  }\n}\n\nfragment ContactsListFragment on Viewer {\n  contacts {\n    __typename\n    id\n    ...ContactRowFragment\n  }\n}\n\nfragment ImageFragment on Image {\n  url\n  altText\n}\n\nfragment ViewerProfileFragment on Viewer {\n  actor {\n    __typename\n    name\n    profilePicture {\n      url\n    }\n    id\n  }\n}\n"
+    "text": "query SidebarQuery {\n  viewer {\n    ...ViewerProfileFragment\n    ...ContactsListFragment\n  }\n}\n\nfragment ContactRowFragment on Actor {\n  __isActor: __typename\n  id\n  name\n  profilePicture {\n    ...ImageFragment\n  }\n}\n\nfragment ContactsListFragment on Viewer {\n  contacts {\n    __typename\n    id\n    ...ContactRowFragment\n  }\n}\n\nfragment ImageFragment on Image {\n  url\n  altText\n}\n\nfragment ViewerProfileFragment on Viewer {\n  actor {\n    __typename\n    name\n    profilePicture {\n      url\n    }\n    id\n  }\n}\n"
   }
 };
 })();

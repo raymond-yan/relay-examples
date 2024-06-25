@@ -1,0 +1,10 @@
+type Note {
+  id: ID!
+  title: String
+  body: String  
+}
+
+# Extend the Person type defined in the server schema
+extend type Person {
+  note: Note
+}

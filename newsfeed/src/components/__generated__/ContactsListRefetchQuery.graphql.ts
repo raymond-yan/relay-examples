@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<537d8310c569748a5b59acc36072be0c>>
+ * @generated SignedSource<<e0471bed7e0b5f7b0e6ae40ddd3d72cb>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -37,7 +37,14 @@ v1 = [
     "name": "search",
     "variableName": "search"
   }
-];
+],
+v2 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "id",
+  "storageKey": null
+};
 return {
   "fragment": {
     "argumentDefinitions": (v0/*: any*/),
@@ -94,13 +101,7 @@ return {
                 "name": "__typename",
                 "storageKey": null
               },
-              {
-                "alias": null,
-                "args": null,
-                "kind": "ScalarField",
-                "name": "id",
-                "storageKey": null
-              },
+              (v2/*: any*/),
               {
                 "kind": "TypeDiscriminator",
                 "abstractKey": "__isActor"
@@ -136,6 +137,44 @@ return {
                   }
                 ],
                 "storageKey": null
+              },
+              {
+                "kind": "InlineFragment",
+                "selections": [
+                  {
+                    "kind": "ClientExtension",
+                    "selections": [
+                      {
+                        "alias": null,
+                        "args": null,
+                        "concreteType": "Note",
+                        "kind": "LinkedField",
+                        "name": "note",
+                        "plural": false,
+                        "selections": [
+                          (v2/*: any*/),
+                          {
+                            "alias": null,
+                            "args": null,
+                            "kind": "ScalarField",
+                            "name": "title",
+                            "storageKey": null
+                          },
+                          {
+                            "alias": null,
+                            "args": null,
+                            "kind": "ScalarField",
+                            "name": "body",
+                            "storageKey": null
+                          }
+                        ],
+                        "storageKey": null
+                      }
+                    ]
+                  }
+                ],
+                "type": "Person",
+                "abstractKey": null
               }
             ],
             "storageKey": null
@@ -146,12 +185,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "3f46ff0d6639f39cf854f8a568c83e15",
+    "cacheID": "f4f715a809544489d1e5dd5d514fbe58",
     "id": null,
     "metadata": {},
     "name": "ContactsListRefetchQuery",
     "operationKind": "query",
-    "text": "query ContactsListRefetchQuery(\n  $search: String = null\n) {\n  viewer {\n    ...ContactsListFragment_40zwac\n  }\n}\n\nfragment ContactRowFragment on Actor {\n  __isActor: __typename\n  name\n  profilePicture {\n    ...ImageFragment\n  }\n}\n\nfragment ContactsListFragment_40zwac on Viewer {\n  contacts(search: $search) {\n    __typename\n    id\n    ...ContactRowFragment\n  }\n}\n\nfragment ImageFragment on Image {\n  url\n  altText\n}\n"
+    "text": "query ContactsListRefetchQuery(\n  $search: String = null\n) {\n  viewer {\n    ...ContactsListFragment_40zwac\n  }\n}\n\nfragment ContactRowFragment on Actor {\n  __isActor: __typename\n  id\n  name\n  profilePicture {\n    ...ImageFragment\n  }\n}\n\nfragment ContactsListFragment_40zwac on Viewer {\n  contacts(search: $search) {\n    __typename\n    id\n    ...ContactRowFragment\n  }\n}\n\nfragment ImageFragment on Image {\n  url\n  altText\n}\n"
   }
 };
 })();
